@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to My Favorite Music Video</h1>
+    <p>
+        This is my favorite song to listen to. I remember waking up for school and having Family Channel on.
+        Then famjam come on play this song and it is how I got introduced to Breaking Benjamin!
+    </p>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/b2S5iNb-DTE?si=bWXZWe-anLAGcZ1N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<<style>
+#myContainer {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background: teal;
+}
+#myAnimation {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background-color: aqua;
+}
+</style>
+<body>
+
+<p>
+<button onclick="myMove()">Click Here!</button> 
+</p>
+
+<div id ="myContainer">
+<div id ="myAnimation"></div>
+</div>
+
+<script>
+var id = null;
+function myMove() {
+  var elem = document.getElementById("myAnimation");   
+  var pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 15);
+  function frame() {
+    if (pos == 275) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+
+</body>
